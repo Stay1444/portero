@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx
+    networks:
+      portero:
+    ports:
+      - "80:80/tcp"
+  
+  api:
+    image:
+      build: ./api/Dockerfile
+    networks:
+      portero:
+  
+  panel:
+    image:
+      build: ./panel/Dockerfile
+    networks:
+      portero:
+networks:
+  portero:
